@@ -1,0 +1,2 @@
+module StaticPagerHelper
+end
