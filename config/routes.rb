@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'users/new'
+ 
+  resources :users
 
   root 'static_pager#home'
-  
   match 'signup', to: 'users#new', via: 'get'
   match 'help', to: 'static_pager#help', via: 'get'
   match 'about', to: 'static_pager#about', via: 'get'
