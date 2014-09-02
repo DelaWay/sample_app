@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
   
   # required to create registration form and receive input data from new user
@@ -56,13 +57,6 @@ class UsersController < ApplicationController
   end
   
   # Before filters
-  
-  def signed_in_user
-    unless signed_in?
-      store_location
-      redirect_to signin_url, notice: "Please sign in." 
-    end
-  end
   
   def correct_user
       @user = User.find(params[:id])
